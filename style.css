@@ -1,1 +1,196 @@
+/* ==========================================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+body {
+    background-color: #f4f7f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL E LAYOUT
+   ========================================================================== */
+main {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Seção de Introdução */
+.intro {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    margin-bottom: 3rem;
+    text-align: center;
+    border-bottom: 4px solid #e8f5e9;
+}
+
+.intro h2 {
+    color: #2e7d32;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    color: #555;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Painel Interativo (Grid Principal) */
+.interactive-panel {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* ==========================================================================
+   BOTÕES E LISTA DE PRÁTICAS
+   ========================================================================== */
+.practices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.practice-btn {
+    background: white;
+    border: 2px solid #e2e8f0;
+    padding: 1.4rem;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4a5568;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.practice-btn:hover {
+    border-color: #81c784;
+    background-color: #f9fdfa;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Estado do botão quando selecionado */
+.practice-btn.active {
+    background-color: #2e7d32;
+    color: white;
+    border-color: #2e7d32;
+    box-shadow: 0 6px 15px rgba(46, 125, 50, 0.25);
+}
+
+/* ==========================================================================
+   DISPLAY DE DETALHES (PAINEL DA DIREITA)
+   ========================================================================== */
+.details-display {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-top: 8px solid #2e7d32;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.details-content h3 {
+    color: #1b5e20;
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+}
+
+.details-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+/* Badge (Etiqueta de Impacto) */
+.impact-badge {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1px solid #c8e6c9;
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-top: 5rem;
+    background-color: #1a2327;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    border-top: 3px solid #2e7d32;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (TELA PARA DISPOSITIVOS MÓVEIS)
+   ========================================================================== */
+@media (max-width: 868px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    main {
+        margin: 1.5rem auto;
+    }
+
+    .interactive-panel {
+        grid-template-columns: 1fr; /* Transforma o grid em uma única coluna */
+        gap: 1.5rem;
+    }
+
+    .details-display {
+        padding: 2rem;
+        min-height: auto;
+    }
+}
