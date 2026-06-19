@@ -1,1 +1,253 @@
+Aqui está um código completo (HTML, CSS e JavaScript) para um site interativo, moderno e responsivo. Ele foi estruturado em uma única página para facilitar a execução.
 
+O site conta com um **painel interativo** onde o visitante clica nas práticas sustentáveis para ver como elas ajudam a preservar o meio ambiente e reduzir o efeito estufa.
+
+### Como usar:
+
+1. Copie o código abaixo.
+2. Cole em um bloco de notas.
+3. Salve o arquivo com o nome `index.html`.
+4. Dê um duplo clique no arquivo para abri-lo no seu navegador!
+
+---
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilíbrio Verde: Agropecuária & Meio Ambiente</title>
+    <style>
+        /* Reset e Configurações Básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Container Principal */
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Seção de Introdução */
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .intro h2 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        /* Painel Interativo */
+        .interactive-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .interactive-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Lista de Botões/Práticas */
+        .practices-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .practice-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4f5b52;
+            transition: all 0.3s ease;
+        }
+
+        .practice-btn:hover {
+            border-color: #81c784;
+            background-color: #f1f8e9;
+            transform: translateY(-2px);
+        }
+
+        .practice-btn.active {
+            background-color: #2e7d32;
+            color: white;
+            border-color: #2e7d32;
+            box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+        }
+
+        /* Tela de Exibição de Detalhes */
+        .details-display {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-top: 6px solid #2e7d32;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .details-content h3 {
+            color: #2e7d32;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .details-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .impact-badge {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            background-color: #263238;
+            color: #b0bec5;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Equilíbrio Sustentável</h1>
+        <p>Como a agropecuária moderna pode proteger o planeta e frear o efeito estufa</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>O Desafio do Século</h2>
+            <p>Alimentar a população mundial sem destruir o meio ambiente é possível. Clique nas práticas sustentáveis abaixo para descobrir como a tecnologia e as técnicas corretas reduzem os gases do efeito estufa e recuperam a natureza.</p>
+        </section>
+
+        <section class="interactive-panel">
+            <div class="practices-list">
+                <button class="practice-btn active" onclick="showDetails('ilpf')">
+                    🌱 Integração Lavoura-Pecuária-Floresta (ILPF)
+                </button>
+                <button class="practice-btn" onclick="showDetails('plantio-direto')">
+                    🚜 Plantio Direto na Palha
+                </button>
+                <button class="practice-btn" onclick="showDetails('biodigestores')">
+                    🔋 Uso de Biodigestores
+                </button>
+                <button class="practice-btn" onclick="showDetails('pastejo')">
+                    🐄 Pastejo Rotacionado
+                </button>
+            </div>
+
+            <div class="details-display" id="display-container">
+                <div class="details-content">
+                    <h3 id="info-title">Integração Lavoura-Pecuária-Floresta (ILPF)</h3>
+                    <p id="info-text">Estratégia que combina produção agrícola, pecuária e florestal em uma mesma área. As árvores plantadas absorvem uma quantidade massiva de gás carbônico ($CO_2$) da atmosfera enquanto crescem, neutralizando os gases emitidos pelo gado.</p>
+                    <span class="impact-badge" id="info-badge">Impacto: Captura de Carbono e Conforto Térmico Animal</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Projeto Agropecuária Sustentável e Meio Ambiente.</p>
+    </footer>
+
+    <script>
+        // Banco de dados com as informações do site
+        const data = {
+            'ilpf': {
+                title: "🌱 Integração Lavoura-Pecuária-Floresta (ILPF)",
+                text: "Estratégia que combina produção agrícola, pecuária e florestal em uma mesma área. As árvores plantadas absorvem uma quantidade massiva de gás carbônico ($CO_2$) da atmosfera enquanto crescem, neutralizando os gases emitidos pelo gado e protegendo o solo contra a erosão.",
+                badge: "Impacto Principal: Alta captura de Carbono e conservação do solo."
+            },
+            'plantio-direto': {
+                title: "🚜 Plantio Direto na Palha",
+                text: "Técnica onde o solo não é revirado antes do plantio. A semente é colocada diretamente sob os restos da colheita anterior. Isso mantém o carbono preso na terra (evitando que ele vá para a atmosfera como $CO_2$), economiza água e reduz drasticamente o uso de combustíveis fósseis nos tratores.",
+                badge: "Impacto Principal: Evita a liberação de carbono do solo e economiza água."
+            },
+            'biodigestores': {
+                title: "🔋 Uso de Biodigestores",
+                text: "Equipamentos que reutilizam o esterco dos animais para produzir biogás e biofertilizantes. Em vez de o gás metano ($CH_4$) — que é muito poluente — escapar para a atmosfera, ele é capturado e transformado em energia limpa para a própria fazenda.",
+                badge: "Impacto Principal: Redução extrema de emissões de Metano ($CH_4$)."
+            },
+            'pastejo': {
+                title: "🐄 Pastejo Rotacionado",
+                text: "O pasto é dividido em piquetes e os animais mudam de área periodicamente. Isso dá tempo para a grama se recuperar e crescer com raízes mais profundas. Raízes fortes puxam mais carbono para o solo e impedem a degradação da terra, tornando a pastagem um 'sumidouro' de poluição.",
+                badge: "Impacto Principal: Recuperação de pastagens e solo fértil."
+            }
+        };
+
+        function showDetails(key) {
+            // Atualiza os textos na tela
+            document.getElementById('info-title').innerText = data[key].title;
+            document.getElementById('info-text').innerText = data[key].text;
+            document.getElementById('info-badge').innerText = data[key].badge;
+
+            // Remove a classe 'active' de todos os botões
+            const buttons = document.querySelectorAll('.practice-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Adiciona a classe 'active' no botão clicado
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
+```
